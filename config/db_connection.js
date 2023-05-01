@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config({ path: __dirname + '../.env' });
 try {
     let conn = async () => {
-        await mongoose.connect('mongodb+srv://krn0869:karan@cluster0.ys3bhdb.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect(process.env.MONGO_URI);
         
     }
     conn().then(() => {
